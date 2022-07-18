@@ -1,0 +1,21 @@
+h1 {
+    color: var(--title);
+    font-size: 35px;
+}
+
+h1,
+h2 {
+    margin: 0px;
+    font-weight: 500;
+}
+
+h2 {
+    font-weight: normal;
+    color: var(--text)
+}
+
+.container {
+    padding: 2rem;
+    height: auto;
+    background-color: var(--white);
+}

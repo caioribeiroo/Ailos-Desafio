@@ -1,0 +1,93 @@
+<app-menu>
+    <app-page-header></app-page-header>
+    <app-page-content>
+        <mat-stepper #stepper [style.background]="'none'" [style.margin]="'0px 15% '">
+            <mat-step label="Início"></mat-step>
+            <mat-step label="Documentos"></mat-step>
+            <mat-step label="Dados cadastrais"></mat-step>
+            <mat-step label="Admissão"></mat-step>
+        </mat-stepper>
+
+        <h3>Informe o CPF do futuro cooperado(a)</h3>
+        <p>Se necessário você poderá á duplicar uma conta existente ou pausar e remotar este cadastro futuramente.</p>
+        <p>Digite apenas os números (sem pontos ou traços).</p>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div fxLayout="inline-flex" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <app-input fxFlex [formGroup]="form" formcontrolname="cpf" label="CPF" placeholder="000.000.000-00"
+                    mask="000.000.000-00">
+                </app-input>
+                <button mat-raised-button class="bg-primary" [style.marginTop]="'0.5rem'">Consultar por CPF</button>
+            </div>
+        </form>
+
+        <div *ngIf="result" fxLayout fxLayoutWrap fxLayoutGap="1rem" fxLayout.lt-md="column" [style.marginTop]="'1rem'">
+
+            <mat-card fxFlex="25%" fxFlex.lt-md="75%">
+                <mat-card-title>Situação Cadastral do CPF</mat-card-title>
+                <mat-card-subtitle>Consulta na receita federal</mat-card-subtitle>
+                <mat-card-content>
+                    <div fxLayout>
+                        <div [style.padding]="'1rem'">
+                            <fa-icon [icon]="faUser" size="2x"></fa-icon>
+                        </div>
+                        <div fxLayout="column">
+                            <h4 [style.margin]="0">Nome</h4>
+                            <h2>{{ result?.registrationSituation?.name }}</h2>
+                        </div> 
+                    </div>
+
+                    <div fxLayout>
+                        <div [style.padding]="'1rem'">
+                            <fa-icon [icon]="faCheckCircle" size="2x" [style.color]="'var(--success)'"></fa-icon>
+                        </div>
+                        <div fxLayout="column">
+                            <h4 [style.margin]="0">Situação do CPF</h4>
+                            <h2>{{ result?.registrationSituation?.situation }}</h2>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card fxFlex="25%" fxFlex.lt-md="75%">
+                <mat-card-title>Conta Aplicação</mat-card-title>
+                <mat-card-subtitle>Cooperativa Viacredi</mat-card-subtitle>
+                <mat-card-content>
+                    <div fxLayout>
+                        <div [style.padding]="'1rem'">
+                            <fa-icon [icon]="faCreditCard" size="2x"></fa-icon>
+                        </div>
+                        <div fxLayout="column">
+                            <h4 [style.margin]="0">Número da Conta</h4>
+                            <h2>{{ result?.applicationAccount?.number }}</h2>
+                        </div>
+                    </div>
+                    <button mat-button class="color-primary">Duplicar conta</button>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card fxFlex="25%" fxFlex.lt-md="75%">
+                <mat-card-title>Conta Corrente</mat-card-title>
+                <mat-card-subtitle>Cooperativa Viacredi</mat-card-subtitle>
+                <mat-card-content>
+                    <div fxLayout>
+                        <div [style.padding]="'1rem'">
+                            <fa-icon [icon]="faCreditCard" size="2x"></fa-icon>
+                        </div>
+                        <div fxLayout="column">
+                            <h4 [style.margin]="0">Número da conta</h4>
+                            <h2>{{ result?.currentAccount?.number }}</h2>
+                        </div>
+                    </div>
+                    <button mat-button class="color-primary">Duplicar conta</button>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </app-page-content>
+
+    <app-footer>
+        <div fxLayout fxLayoutGap="1rem">
+            <button *ngIf="result" mat-raised-button appearance="outlined" class="btn-primary bg-primary">Iniciar nova admissão</button>
+            <button mat-raised-button appearance="outlined" class="btn-primary">Dicas para administração</button>
+        </div>
+    </app-footer>
+</app-menu>

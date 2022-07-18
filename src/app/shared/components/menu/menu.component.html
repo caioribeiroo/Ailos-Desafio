@@ -1,0 +1,24 @@
+<div fxLayout fxLayout.lt-md="column">
+    <div class="wrapper">
+        <div fxLayout="column" fxLayout.lt-md="row" fxLayoutAlign="center center" fxLayoutGap="2rem">
+            
+                <img src="/assets/images/logo.png" alt="Alios logo" width="80px">
+                
+                <fa-icon [icon]="faBars" size="2x"></fa-icon>
+
+                <fa-icon [icon]="faSearch" size="2x"></fa-icon>
+            
+                <fa-icon [icon]="faStar" size="2x"></fa-icon>
+            
+                <fa-icon [icon]="faCommentDots" size="2x"></fa-icon>
+            
+                <fa-icon [icon]="faSlidersH" size="2x"></fa-icon>
+            
+                <fa-icon [icon]="faLandmark" size="2x"></fa-icon>
+          </div>
+    </div>
+    <div class="content">
+        <ng-content></ng-content>
+    </div>
+</div>
+

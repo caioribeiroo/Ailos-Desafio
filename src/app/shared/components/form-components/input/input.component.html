@@ -1,0 +1,12 @@
+<div fxLayout="column">
+	<mat-label [style.fontWeight]="500">{{ label }}</mat-label>
+	<mat-form-field [formGroup]="formGroup" fxFlex>
+		<input matInput [type]="type" [formControlName]="formcontrolname" [placeholder]="placeholder"
+		(keyup)="onChange($event)" [mask]="mask" #input [dropSpecialCharacters]="true" >
+		<mat-icon *ngIf="iconName" matSuffix class="secondary-text">{{ iconName }}</mat-icon>
+		<mat-hint align="end" *ngIf="maxLength">{{input.value?.length || 0}}/{{ maxLength }}</mat-hint>
+		<mat-error>
+			<app-error [formcontrolname]="formcontrolname" [formGroup]="formGroup"></app-error>
+		</mat-error>
+	</mat-form-field>
+</div>

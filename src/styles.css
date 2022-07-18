@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+* { outline: none !important;}
+html, body { height: 100%; background: var(--background) !important}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+    --primary: #1d5c7d;
+    --title: #101213;
+    --text: #9a9a9a;
+    --background: #f1faff;
+    --white: #ffffff;
+    --danger: #ea4335;
+    --success: #68bb6a
+}
+
+
+.bg-primary {
+    background-color: var(--primary);
+    color: var(--white) !important
+}
+
+.color-primary {
+    color: var(--primary);
+}
+
+.btn-primary {
+    font-weight: bold !important;
+    border-width: 3px !important;
+    border-color: var(--primary) !important;
+    border-style: solid !important;
+    color: var(--primary);
+}
+
+.radius-100 {
+    border-radius: 100px !important
+}

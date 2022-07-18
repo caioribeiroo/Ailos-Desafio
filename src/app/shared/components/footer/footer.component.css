@@ -1,0 +1,9 @@
+footer {
+    display: flex;
+    height: 3rem;
+    background: var(--white);
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    padding: 1rem;
+}
